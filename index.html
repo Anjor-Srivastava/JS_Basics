@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="icon.png">
+        <title>JS Basics</title>
+    </head>
+    <body>
+        <h1>Open Console (Press F12)</h1>
+        <hr>
+        <button id="my_name">Display my name and it's length</button>
+        <button id="sec_name">Display Second Name</button>
+        <button id="caps">Show all name in caps</button>
+        <button id="low">Show all names without caps</button>
+        <div>
+            <h1>Maths (Please fill all fields)</h1>
+            <div><input id="addnum1" type="number"> + <input id="addnum2" type="number"></div>
+            <div><input id="subnum1" type="number"> - <input id="subnum2" type="number"></div>
+            <div><input id="pronum1" type="number"> * <input id="pronum2" type="number"></div>
+            <div><input id="divnum1" type="number"> / <input id="divnum2" type="number"></div>
+            <div><input id="powernum" type="number"> ^ <input id="powerexpo" type="number"></div>
+            <div>squareroot <input id="root" type="number"></div>
+            <div>Enter a math problem(ex. 1+1*2/1) <input id="evaluate"></div>
+            <button id="solve">Solve Problems</button>
+        </div>
+        <style>
+            button {
+                cursor: pointer;
+                padding: 5px;
+                background-color: black;
+                color: white;
+                border-radius: 10px;
+            }
+            div {
+                margin: 10px;
+            }
+
+            h1{
+                color: green;
+                font-family: sans-serif;
+            }
+        </style>
+        <script>
+            var first_name = "Anjor";
+            var last_name = " Srivastava";
+            var full_name = first_name.concat(last_name);
+            var lengthOfName = full_name.length;
+
+            var test_name = "Alex Peter Jhon";
+            var new_name = test_name.replace("Peter", "Roy");
+
+            var caps1 = full_name.toUpperCase();
+            var caps2 = new_name.toUpperCase();
+
+            var low1 = full_name.toLowerCase();
+            var low2 = new_name.toLowerCase();
+
+            var sum, differnce, product, quotient, squareroot, power, evaluate;
+
+            document.getElementById("my_name").addEventListener('click', function () {
+                console.log("My Name:");
+                console.log("My first name is ".concat(first_name));
+                console.log("My last name is ".concat(last_name));
+                console.log("My full name is ".concat(full_name));
+                console.log("The length of my name is ".concat(lengthOfName));
+            });
+
+            document.getElementById("sec_name").addEventListener('click', function () {
+                console.log("Second Name:");
+                console.log("Name: ".concat(test_name));
+                console.log("Name after Peter has been replaced by Roy: ".concat(new_name));
+            });
+
+            document.getElementById("caps").addEventListener('click', function () {
+                console.log("All names in caps:");
+                console.log(caps1);
+                console.log(caps2);
+            });
+
+            document.getElementById("low").addEventListener('click', function () {
+                console.log("All names without caps:");
+                console.log(low1);
+                console.log(low2);
+            });
+
+            document.getElementById("solve").addEventListener('click', function () {
+                sum = Number(document.getElementById("addnum1").value) + Number(document.getElementById("addnum2").value);
+                differnce = document.getElementById("subnum1").value - document.getElementById("subnum2").value;
+                product = document.getElementById("pronum1").value * document.getElementById("pronum2").value;
+                quotient = document.getElementById("divnum1").value / document.getElementById("divnum2").value;
+                power = Math.pow(document.getElementById("powernum").value, document.getElementById("powerexpo").value);
+                squareroot = Math.sqrt(document.getElementById("root").value);
+                evaluate = eval(document.getElementById("evaluate").value);
+                console.log("Math Problem answers:")
+                console.log(sum);
+                console.log(differnce);
+                console.log(product);
+                console.log(quotient);
+                console.log(power);
+                console.log(squareroot);
+                console.log(evaluate);
+            });
+        </script>
+    </body>
+</html>
